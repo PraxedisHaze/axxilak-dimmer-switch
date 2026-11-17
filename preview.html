@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Axxilak Dimmer Switch</title>
+<style>
+  body { margin:0; padding:2rem 1rem; background:#071419; color:#dffbff; font:1rem system-ui; }
+  main { max-width:34rem; margin:auto; }
+  .preview { height:12rem; border-radius:1rem; background:#00d9ef; opacity:.3; margin:1rem 0; }
+  input { width:min(100%,20rem); min-height:44px; accent-color:#00d9ef; display:block; }
+  input:focus-visible { outline:3px solid white; outline-offset:3px; }
+</style>
+<main>
+  <h1>Axxilak Dimmer Switch</h1>
+  <div class="preview" aria-hidden="true"></div>
+  <label for="level">Preview brightness</label>
+  <input id="level" type="range" min="0" max="100" value="30">
+  <output for="level">30%</output>
+</main>
+<script>
+  const slider = document.querySelector('#level');
+  const preview = document.querySelector('.preview');
+  const readout = document.querySelector('output');
+  slider.addEventListener('input', () => {
+    preview.style.opacity = Number(slider.value) / 100;
+    readout.value = slider.value + '%';
+  });
+</script>
+</html>
